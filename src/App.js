@@ -37,6 +37,7 @@ function App() {
   };
   return (
     <>
+    {/* I am just checking my githhub profile */}
       {/* <Navbar/> */}
       <Router>
       <Navbar titles="Textutiles" mode={mode} toggleMode={toggleMode} />
@@ -44,7 +45,7 @@ function App() {
         <Routes>
           <Route exact path="/About" element={<About />} />
 
-          <Route exact
+          <Route ex   act
             path="/"
             element={
               <div className="container my-3" >
