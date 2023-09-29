@@ -6,6 +6,8 @@ import "./App.css";
 import Alert from "./components/Alert";
 import About from "./components/About";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
   const [mode, setMode] = useState("white");
   const [alert, setAlert] = useState(null);
@@ -36,27 +38,26 @@ function App() {
   return (
     <>
       {/* <Navbar/> */}
+      <Router>
       <Navbar titles="Textutiles" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      {/* 
-          <Switch>
-            <Route path="/about">
-             
-            </Route>
-            <Route path="/">
-              
-            </Route>
-          </Switch>
-         */}
-      <div className="container my-3">
-        <Textform
-          showAlert={showAlert}
-          heading="Enter the text to analyze the text"
-          mode={mode}
-        />
-      </div>
-      <About />
+        <Alert alert={alert} />
+        <Routes>
+          <Route exact path="/About" element={<About />} />
 
+          <Route exact
+            path="/"
+            element={
+              <div className="container my-3" >
+              <Textform
+                showAlert={showAlert}
+                heading="Enter the text to analyze the text"
+                mode={mode}
+              />
+          </div>
+            }
+          />
+        </Routes>
+      </Router>
     </>
   );
 }
